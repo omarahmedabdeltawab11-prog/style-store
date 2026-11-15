@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { products } from "../data/products";
 import ProductCard from "../components/ProductCard";
+import GarmentHanger3D from "../components/GarmentHanger3D";
 import type { Product } from "../types";
 
 function HangerIcon({ className }: { className?: string }) {
@@ -16,17 +17,6 @@ function HangerIcon({ className }: { className?: string }) {
         strokeLinejoin="round"
       />
       <path d="M2.5 17.2h19" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function HangingSilhouette({ color, className }: { color: string; className?: string }) {
-  return (
-    <svg viewBox="0 0 64 80" className={className}>
-      <path
-        d="M24 6 L40 6 L40 10 L52 20 L60 32 L52 41 L46 33 L46 74 L18 74 L18 33 L12 41 L4 32 L12 20 L24 10 Z"
-        fill={color}
-      />
     </svg>
   );
 }
@@ -95,21 +85,26 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="flex items-start gap-4 md:gap-5 lg:gap-7">
+            <div className="flex items-start gap-3 md:gap-5 lg:gap-7">
               {others.map((product) => (
-                <button
+                <div
                   key={product.id}
-                  type="button"
                   onClick={() => setSelectedId(product.id)}
-                  className="group flex flex-col items-center"
+                  className="group flex cursor-pointer flex-col items-center"
+                  role="button"
+                  tabIndex={0}
                   aria-label={`Show ${product.name}`}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") setSelectedId(product.id);
+                  }}
                 >
                   <HangerIcon className="h-7 w-7 text-ink/50 transition-colors group-hover:text-accent" />
-                  <HangingSilhouette
+                  <GarmentHanger3D
                     color={product.color}
-                    className="mt-0.5 h-14 w-11 drop-shadow-sm transition-transform group-hover:-translate-y-1 md:h-20 md:w-16"
+                    accent={product.accent}
+                    className="-mt-1 h-16 w-14 md:h-24 md:w-20"
                   />
-                </button>
+                </div>
               ))}
             </div>
           </div>
