@@ -6,14 +6,14 @@ export default function ProductCard({ product }: { product: Product }) {
   return (
     <Link
       to={`/product/${product.id}`}
-      className="group flex w-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition-colors hover:border-accent/60"
+      className="group flex w-full flex-col overflow-hidden rounded-2xl border border-ink/10 bg-ink/[0.04] transition-colors hover:border-accent/60"
     >
       <div
         className="relative flex aspect-square items-center justify-center overflow-hidden"
         style={{ backgroundColor: product.color }}
       >
         {product.isNew && (
-          <span className="absolute left-3 top-3 rounded-full bg-accent px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-ink">
+          <span className="absolute left-3 top-3 rounded-full bg-accent px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-paper">
             New
           </span>
         )}

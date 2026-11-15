@@ -32,7 +32,7 @@ export default function ProductDetail() {
       <button
         type="button"
         onClick={() => navigate(-1)}
-        className="mb-8 text-sm font-semibold text-paper/60 transition-colors hover:text-accent"
+        className="mb-8 text-sm font-semibold text-ink/60 transition-colors hover:text-accent"
       >
         ← Back
       </button>
@@ -48,7 +48,7 @@ export default function ProductDetail() {
         <div className="flex flex-col gap-6">
           <div>
             {product.isNew && (
-              <span className="mb-3 inline-block rounded-full bg-accent px-3 py-1 text-xs font-bold uppercase tracking-wide text-ink">
+              <span className="mb-3 inline-block rounded-full bg-accent px-3 py-1 text-xs font-bold uppercase tracking-wide text-paper">
                 New Arrival
               </span>
             )}
@@ -58,10 +58,10 @@ export default function ProductDetail() {
             <p className="mt-3 text-2xl font-bold text-accent">${product.price}</p>
           </div>
 
-          <p className="text-paper/70">{product.description}</p>
+          <p className="text-ink/70">{product.description}</p>
 
           <div>
-            <p className="mb-2 text-xs font-bold uppercase tracking-wide text-paper/50">
+            <p className="mb-2 text-xs font-bold uppercase tracking-wide text-ink/50">
               Size
             </p>
             <div className="flex flex-wrap gap-2">
@@ -72,8 +72,8 @@ export default function ProductDetail() {
                   onClick={() => setSize(s)}
                   className={`rounded-lg border px-4 py-2 text-sm font-semibold transition-colors ${
                     size === s
-                      ? "border-accent bg-accent text-ink"
-                      : "border-white/20 hover:border-accent hover:text-accent"
+                      ? "border-accent bg-accent text-paper"
+                      : "border-ink/15 hover:border-accent hover:text-accent"
                   }`}
                 >
                   {s}
@@ -83,10 +83,10 @@ export default function ProductDetail() {
           </div>
 
           <div>
-            <p className="mb-2 text-xs font-bold uppercase tracking-wide text-paper/50">
+            <p className="mb-2 text-xs font-bold uppercase tracking-wide text-ink/50">
               Quantity
             </p>
-            <div className="flex w-fit items-center gap-4 rounded-full border border-white/20 px-2 py-1">
+            <div className="flex w-fit items-center gap-4 rounded-full border border-ink/15 px-2 py-1">
               <button
                 type="button"
                 onClick={() => setQuantity((q) => Math.max(1, q - 1))}
@@ -110,7 +110,7 @@ export default function ProductDetail() {
           <button
             type="button"
             onClick={handleAddToBag}
-            className="w-full rounded-full bg-accent py-4 text-sm font-bold uppercase tracking-wide text-ink transition-transform hover:scale-[1.02]"
+            className="w-full rounded-full bg-accent py-4 text-sm font-bold uppercase tracking-wide text-paper transition-transform hover:scale-[1.02]"
           >
             {added ? "Added to Bag ✓" : "Add to Bag"}
           </button>

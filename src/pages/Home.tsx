@@ -19,20 +19,20 @@ export default function Home() {
         <h1 className="mt-4 text-5xl font-black uppercase leading-[0.95] tracking-tight md:text-7xl">
           No Rules. <span className="text-accent">Just Style.</span>
         </h1>
-        <p className="mx-auto mt-5 max-w-xl text-base text-paper/60 md:text-lg">
+        <p className="mx-auto mt-5 max-w-xl text-base text-ink/60 md:text-lg">
           Oversized fits, heavyweight fleece, and silhouettes made for the street. Gear up with
           the latest Hustle Co. collection.
         </p>
         <div className="mt-8 flex items-center justify-center gap-4">
           <Link
             to="/shop"
-            className="rounded-full bg-accent px-8 py-3 text-sm font-bold uppercase tracking-wide text-ink transition-transform hover:scale-105"
+            className="rounded-full bg-accent px-8 py-3 text-sm font-bold uppercase tracking-wide text-paper transition-transform hover:scale-105"
           >
             Shop Now
           </Link>
           <Link
             to="/shop?category=hoodies"
-            className="rounded-full border border-white/30 px-8 py-3 text-sm font-bold uppercase tracking-wide transition-colors hover:border-accent hover:text-accent"
+            className="rounded-full border border-ink/25 px-8 py-3 text-sm font-bold uppercase tracking-wide transition-colors hover:border-accent hover:text-accent"
           >
             Hoodies
           </Link>
@@ -49,7 +49,7 @@ export default function Home() {
               type="button"
               onClick={() => scrollRail(-1)}
               aria-label="Scroll left"
-              className="h-9 w-9 rounded-full border border-white/20 transition-colors hover:border-accent hover:text-accent"
+              className="h-9 w-9 rounded-full border border-ink/15 transition-colors hover:border-accent hover:text-accent"
             >
               ‹
             </button>
@@ -57,7 +57,7 @@ export default function Home() {
               type="button"
               onClick={() => scrollRail(1)}
               aria-label="Scroll right"
-              className="h-9 w-9 rounded-full border border-white/20 transition-colors hover:border-accent hover:text-accent"
+              className="h-9 w-9 rounded-full border border-ink/15 transition-colors hover:border-accent hover:text-accent"
             >
               ›
             </button>
@@ -89,11 +89,11 @@ export default function Home() {
       )}
 
       <section className="mx-auto w-full max-w-6xl px-5">
-        <div className="flex flex-col items-center gap-4 rounded-3xl border border-white/10 bg-white/5 px-6 py-12 text-center">
+        <div className="flex flex-col items-center gap-4 rounded-3xl border border-ink/10 bg-ink/[0.04] px-6 py-12 text-center">
           <h2 className="text-2xl font-black uppercase tracking-tight md:text-4xl">
             Built Different. Worn Everywhere.
           </h2>
-          <p className="max-w-xl text-paper/60">
+          <p className="max-w-xl text-ink/60">
             Join the Hustle Co. mailing list for early access to drops and exclusive discounts.
           </p>
           <form
@@ -104,11 +104,11 @@ export default function Home() {
               type="email"
               required
               placeholder="you@email.com"
-              className="w-full rounded-full border border-white/20 bg-transparent px-5 py-3 text-sm outline-none focus:border-accent"
+              className="w-full rounded-full border border-ink/15 bg-transparent px-5 py-3 text-sm outline-none focus:border-accent"
             />
             <button
               type="submit"
-              className="shrink-0 rounded-full bg-accent px-6 py-3 text-sm font-bold uppercase text-ink"
+              className="shrink-0 rounded-full bg-accent px-6 py-3 text-sm font-bold uppercase text-paper"
             >
               Join
             </button>

@@ -33,32 +33,32 @@ export default function Checkout() {
             required
             type="text"
             placeholder="Full name"
-            className="rounded-xl border border-white/20 bg-transparent px-4 py-3 text-sm outline-none focus:border-accent"
+            className="rounded-xl border border-ink/15 bg-transparent px-4 py-3 text-sm outline-none focus:border-accent"
           />
           <input
             required
             type="email"
             placeholder="Email address"
-            className="rounded-xl border border-white/20 bg-transparent px-4 py-3 text-sm outline-none focus:border-accent"
+            className="rounded-xl border border-ink/15 bg-transparent px-4 py-3 text-sm outline-none focus:border-accent"
           />
           <input
             required
             type="text"
             placeholder="Shipping address"
-            className="rounded-xl border border-white/20 bg-transparent px-4 py-3 text-sm outline-none focus:border-accent"
+            className="rounded-xl border border-ink/15 bg-transparent px-4 py-3 text-sm outline-none focus:border-accent"
           />
           <div className="grid grid-cols-2 gap-4">
             <input
               required
               type="text"
               placeholder="City"
-              className="rounded-xl border border-white/20 bg-transparent px-4 py-3 text-sm outline-none focus:border-accent"
+              className="rounded-xl border border-ink/15 bg-transparent px-4 py-3 text-sm outline-none focus:border-accent"
             />
             <input
               required
               type="text"
               placeholder="Postal code"
-              className="rounded-xl border border-white/20 bg-transparent px-4 py-3 text-sm outline-none focus:border-accent"
+              className="rounded-xl border border-ink/15 bg-transparent px-4 py-3 text-sm outline-none focus:border-accent"
             />
           </div>
         </fieldset>
@@ -67,7 +67,7 @@ export default function Checkout() {
           <legend className="mb-2 text-sm font-bold uppercase tracking-wide text-accent">
             Payment (Demo)
           </legend>
-          <p className="text-xs text-paper/50">
+          <p className="text-xs text-ink/50">
             This is a demo storefront — no real payment is processed. Enter any values.
           </p>
           <input
@@ -75,26 +75,26 @@ export default function Checkout() {
             type="text"
             placeholder="Card number"
             inputMode="numeric"
-            className="rounded-xl border border-white/20 bg-transparent px-4 py-3 text-sm outline-none focus:border-accent"
+            className="rounded-xl border border-ink/15 bg-transparent px-4 py-3 text-sm outline-none focus:border-accent"
           />
           <div className="grid grid-cols-2 gap-4">
             <input
               required
               type="text"
               placeholder="MM / YY"
-              className="rounded-xl border border-white/20 bg-transparent px-4 py-3 text-sm outline-none focus:border-accent"
+              className="rounded-xl border border-ink/15 bg-transparent px-4 py-3 text-sm outline-none focus:border-accent"
             />
             <input
               required
               type="text"
               placeholder="CVC"
               inputMode="numeric"
-              className="rounded-xl border border-white/20 bg-transparent px-4 py-3 text-sm outline-none focus:border-accent"
+              className="rounded-xl border border-ink/15 bg-transparent px-4 py-3 text-sm outline-none focus:border-accent"
             />
           </div>
         </fieldset>
 
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+        <div className="rounded-2xl border border-ink/10 bg-ink/[0.04] p-5">
           <div className="flex justify-between text-base font-bold">
             <span>Total</span>
             <span>${subtotal.toFixed(0)}</span>
@@ -104,7 +104,7 @@ export default function Checkout() {
         <button
           type="submit"
           disabled={submitting}
-          className="rounded-full bg-accent py-4 text-sm font-bold uppercase tracking-wide text-ink transition-transform hover:scale-[1.02] disabled:opacity-60"
+          className="rounded-full bg-accent py-4 text-sm font-bold uppercase tracking-wide text-paper transition-transform hover:scale-[1.02] disabled:opacity-60"
         >
           {submitting ? "Placing Order…" : "Place Order"}
         </button>

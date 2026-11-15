@@ -55,8 +55,8 @@ export default function Shop() {
               onClick={() => setCategory(cat.value)}
               className={`rounded-full border px-4 py-2 text-sm font-semibold uppercase tracking-wide transition-colors ${
                 activeCategory === cat.value
-                  ? "border-accent bg-accent text-ink"
-                  : "border-white/20 text-paper/70 hover:border-accent hover:text-accent"
+                  ? "border-accent bg-accent text-paper"
+                  : "border-ink/15 text-ink/70 hover:border-accent hover:text-accent"
               }`}
             >
               {cat.label}
@@ -67,7 +67,7 @@ export default function Shop() {
         <select
           value={sort}
           onChange={(e) => setSort(e.target.value as SortOption)}
-          className="rounded-full border border-white/20 bg-ink px-4 py-2 text-sm font-semibold uppercase tracking-wide outline-none focus:border-accent"
+          className="rounded-full border border-ink/15 bg-paper px-4 py-2 text-sm font-semibold uppercase tracking-wide outline-none focus:border-accent"
         >
           <option value="featured">Featured</option>
           <option value="price-asc">Price: Low to High</option>
@@ -76,7 +76,7 @@ export default function Shop() {
       </div>
 
       {filtered.length === 0 ? (
-        <p className="py-20 text-center text-paper/50">No products found in this category.</p>
+        <p className="py-20 text-center text-ink/50">No products found in this category.</p>
       ) : (
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
           {filtered.map((product) => (

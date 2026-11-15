@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #0a0a0a;
-  --color-paper: #f5f4f0;
-  --color-accent: #ff2d42;
+  --color-paper: #faf8f2;
+  --color-ink: #20231a;
+  --color-accent: #5c6b3c;
 }
 
 html {
@@ -12,8 +12,8 @@ html {
 
 body {
   margin: 0;
-  background: var(--color-ink);
-  color: var(--color-paper);
+  background: var(--color-paper);
+  color: var(--color-ink);
   font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
@@ -27,5 +27,5 @@ body {
   border-radius: 999px;
 }
 ::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: #ece8dc;
 }

@@ -10,10 +10,10 @@ export default function Cart() {
     return (
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-5 py-24 text-center">
         <h1 className="text-3xl font-black uppercase tracking-tight">Your Bag is Empty</h1>
-        <p className="text-paper/60">Looks like you haven't added anything yet.</p>
+        <p className="text-ink/60">Looks like you haven't added anything yet.</p>
         <Link
           to="/shop"
-          className="rounded-full bg-accent px-8 py-3 text-sm font-bold uppercase tracking-wide text-ink"
+          className="rounded-full bg-accent px-8 py-3 text-sm font-bold uppercase tracking-wide text-paper"
         >
           Start Shopping
         </Link>
@@ -33,7 +33,7 @@ export default function Cart() {
             return (
               <div
                 key={`${line.productId}-${line.size}`}
-                className="flex gap-4 rounded-2xl border border-white/10 bg-white/5 p-4"
+                className="flex gap-4 rounded-2xl border border-ink/10 bg-ink/[0.04] p-4"
               >
                 <div
                   className="flex h-24 w-24 shrink-0 items-center justify-center rounded-xl"
@@ -50,14 +50,14 @@ export default function Cart() {
                       >
                         {product.name}
                       </Link>
-                      <p className="text-sm text-paper/50">Size {line.size}</p>
+                      <p className="text-sm text-ink/50">Size {line.size}</p>
                     </div>
                     <p className="font-bold text-accent">
                       ${(product.price * line.quantity).toFixed(0)}
                     </p>
                   </div>
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3 rounded-full border border-white/20 px-2 py-1">
+                    <div className="flex items-center gap-3 rounded-full border border-ink/15 px-2 py-1">
                       <button
                         type="button"
                         onClick={() => updateQuantity(line.productId, line.size, line.quantity - 1)}
@@ -81,7 +81,7 @@ export default function Cart() {
                     <button
                       type="button"
                       onClick={() => removeItem(line.productId, line.size)}
-                      className="text-xs font-semibold uppercase tracking-wide text-paper/50 hover:text-accent"
+                      className="text-xs font-semibold uppercase tracking-wide text-ink/50 hover:text-accent"
                     >
                       Remove
                     </button>
@@ -92,24 +92,24 @@ export default function Cart() {
           })}
         </div>
 
-        <div className="h-fit rounded-2xl border border-white/10 bg-white/5 p-6">
+        <div className="h-fit rounded-2xl border border-ink/10 bg-ink/[0.04] p-6">
           <h2 className="mb-4 text-lg font-black uppercase tracking-tight">Order Summary</h2>
-          <div className="flex justify-between text-sm text-paper/70">
+          <div className="flex justify-between text-sm text-ink/70">
             <span>Subtotal</span>
             <span>${subtotal.toFixed(0)}</span>
           </div>
-          <div className="mt-2 flex justify-between text-sm text-paper/70">
+          <div className="mt-2 flex justify-between text-sm text-ink/70">
             <span>Shipping</span>
             <span>Free</span>
           </div>
-          <div className="my-4 border-t border-white/10" />
+          <div className="my-4 border-t border-ink/10" />
           <div className="flex justify-between text-base font-bold">
             <span>Total</span>
             <span>${subtotal.toFixed(0)}</span>
           </div>
           <Link
             to="/checkout"
-            className="mt-6 block rounded-full bg-accent py-3 text-center text-sm font-bold uppercase tracking-wide text-ink transition-transform hover:scale-[1.02]"
+            className="mt-6 block rounded-full bg-accent py-3 text-center text-sm font-bold uppercase tracking-wide text-paper transition-transform hover:scale-[1.02]"
           >
             Checkout
           </Link>
