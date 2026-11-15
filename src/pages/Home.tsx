@@ -1,7 +1,8 @@
-import { useRef } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { products } from "../data/products";
 import ProductCard from "../components/ProductCard";
+import type { Product } from "../types";
 
 function HangerIcon({ className }: { className?: string }) {
   return (
@@ -19,14 +20,24 @@ function HangerIcon({ className }: { className?: string }) {
   );
 }
 
+function HangingSilhouette({ color, className }: { color: string; className?: string }) {
+  return (
+    <svg viewBox="0 0 64 80" className={className}>
+      <path
+        d="M24 6 L40 6 L40 10 L52 20 L60 32 L52 41 L46 33 L46 74 L18 74 L18 33 L12 41 L4 32 L12 20 L24 10 Z"
+        fill={color}
+      />
+    </svg>
+  );
+}
+
 export default function Home() {
-  const railRef = useRef<HTMLDivElement>(null);
   const featured = products.slice(0, 6);
   const newArrivals = products.filter((p) => p.isNew);
+  const [selectedId, setSelectedId] = useState(featured[0].id);
 
-  const scrollRail = (dir: 1 | -1) => {
-    railRef.current?.scrollBy({ left: dir * 260, behavior: "smooth" });
-  };
+  const active: Product = featured.find((p) => p.id === selectedId) ?? featured[0];
+  const others = featured.filter((p) => p.id !== active.id);
 
   return (
     <div className="flex flex-col gap-20 pb-20">
@@ -56,40 +67,52 @@ export default function Home() {
       </section>
 
       <section className="mx-auto w-full max-w-6xl px-5">
-        <div className="mb-6 flex items-end justify-between">
-          <h2 className="text-2xl font-black uppercase tracking-tight md:text-3xl">
-            Best Sellers
-          </h2>
-          <div className="hidden gap-2 md:flex">
-            <button
-              type="button"
-              onClick={() => scrollRail(-1)}
-              aria-label="Scroll left"
-              className="h-9 w-9 rounded-full border border-ink/15 transition-colors hover:border-accent hover:text-accent"
-            >
-              ‹
-            </button>
-            <button
-              type="button"
-              onClick={() => scrollRail(1)}
-              aria-label="Scroll right"
-              className="h-9 w-9 rounded-full border border-ink/15 transition-colors hover:border-accent hover:text-accent"
-            >
-              ›
-            </button>
-          </div>
-        </div>
-        <div
-          ref={railRef}
-          className="relative flex gap-8 overflow-x-auto pb-4 pt-9 [-ms-overflow-style:none] [scrollbar-width:thin]"
-        >
-          <div className="pointer-events-none absolute inset-x-2 top-5 h-[3px] rounded-full bg-ink/20" />
-          {featured.map((product) => (
-            <div key={product.id} className="relative w-56 shrink-0">
-              <HangerIcon className="absolute left-1/2 top-[-28px] h-8 w-8 -translate-x-1/2 text-ink/50" />
-              <ProductCard product={product} />
+        <div className="relative">
+          <div className="pointer-events-none absolute inset-x-6 top-[22px] h-[3px] rounded-full bg-ink/25 md:inset-x-10" />
+          <div className="pointer-events-none absolute left-3 top-[15px] h-4 w-4 rounded-full bg-ink/25 md:left-6" />
+          <div className="pointer-events-none absolute right-3 top-[15px] h-4 w-4 rounded-full bg-ink/25 md:right-6" />
+
+          <div className="flex flex-col items-center gap-10 md:flex-row md:items-start md:justify-center md:gap-8 lg:gap-14">
+            <div className="flex w-56 shrink-0 flex-col items-center md:w-64">
+              <HangerIcon className="h-9 w-9 text-ink/60" />
+              <div
+                className="mt-1 w-full overflow-hidden rounded-2xl"
+                style={{ backgroundColor: active.color }}
+              >
+                <img
+                  src={active.image}
+                  alt={active.name}
+                  className="aspect-[4/5] w-full object-cover"
+                />
+              </div>
+              <p className="mt-3 text-center text-sm font-semibold leading-snug">{active.name}</p>
+              <p className="text-sm font-bold text-accent">${active.price}</p>
+              <Link
+                to={`/product/${active.id}`}
+                className="mt-3 rounded-full bg-ink px-6 py-2 text-xs font-bold uppercase tracking-wide text-paper transition-transform hover:scale-105"
+              >
+                View More
+              </Link>
             </div>
-          ))}
+
+            <div className="flex items-start gap-4 md:gap-5 lg:gap-7">
+              {others.map((product) => (
+                <button
+                  key={product.id}
+                  type="button"
+                  onClick={() => setSelectedId(product.id)}
+                  className="group flex flex-col items-center"
+                  aria-label={`Show ${product.name}`}
+                >
+                  <HangerIcon className="h-7 w-7 text-ink/50 transition-colors group-hover:text-accent" />
+                  <HangingSilhouette
+                    color={product.color}
+                    className="mt-0.5 h-14 w-11 drop-shadow-sm transition-transform group-hover:-translate-y-1 md:h-20 md:w-16"
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
