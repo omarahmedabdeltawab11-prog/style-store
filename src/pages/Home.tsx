@@ -3,6 +3,22 @@ import { Link } from "react-router-dom";
 import { products } from "../data/products";
 import ProductCard from "../components/ProductCard";
 
+function HangerIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor">
+      <circle cx="12" cy="4.5" r="1.6" strokeWidth="1.5" />
+      <path d="M12 6v2" strokeWidth="1.5" strokeLinecap="round" />
+      <path
+        d="M3.5 16.5 11 9.8a1.4 1.4 0 0 1 2 0l7.5 6.7"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path d="M2.5 17.2h19" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 export default function Home() {
   const railRef = useRef<HTMLDivElement>(null);
   const featured = products.slice(0, 6);
@@ -65,10 +81,12 @@ export default function Home() {
         </div>
         <div
           ref={railRef}
-          className="flex gap-4 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:thin]"
+          className="relative flex gap-8 overflow-x-auto pb-4 pt-9 [-ms-overflow-style:none] [scrollbar-width:thin]"
         >
+          <div className="pointer-events-none absolute inset-x-2 top-5 h-[3px] rounded-full bg-ink/20" />
           {featured.map((product) => (
-            <div key={product.id} className="w-56 shrink-0">
+            <div key={product.id} className="relative w-56 shrink-0">
+              <HangerIcon className="absolute left-1/2 top-[-28px] h-8 w-8 -translate-x-1/2 text-ink/50" />
               <ProductCard product={product} />
             </div>
           ))}
