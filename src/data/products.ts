@@ -3,6 +3,7 @@ import type { Product } from "../types";
 export const products: Product[] = [
   {
     id: "stay-hustle-hoodie",
+    image: "/products/stay-hustle-hoodie.jpg",
     name: "Stay Hustle Oversized Hoodie",
     price: 135,
     category: "hoodies",
@@ -15,6 +16,7 @@ export const products: Product[] = [
   },
   {
     id: "no-rules-hoodie",
+    image: "/products/no-rules-hoodie.jpg",
     name: "No Rules Pullover Hoodie",
     price: 120,
     category: "hoodies",
@@ -26,6 +28,7 @@ export const products: Product[] = [
   },
   {
     id: "midnight-zip-hoodie",
+    image: "/products/midnight-zip-hoodie.jpg",
     name: "Midnight Zip-Up Hoodie",
     price: 145,
     category: "hoodies",
@@ -37,6 +40,7 @@ export const products: Product[] = [
   },
   {
     id: "ash-oversized-hoodie",
+    image: "/products/ash-oversized-hoodie.jpg",
     name: "Ash Oversized Hoodie",
     price: 130,
     category: "hoodies",
@@ -49,6 +53,7 @@ export const products: Product[] = [
   },
   {
     id: "plum-crewneck",
+    image: "/products/plum-crewneck.jpg",
     name: "Plum Heavyweight Crewneck",
     price: 95,
     category: "hoodies",
@@ -59,6 +64,7 @@ export const products: Product[] = [
   },
   {
     id: "core-logo-tee",
+    image: "/products/core-logo-tee.jpg",
     name: "Core Logo Tee",
     price: 45,
     category: "tees",
@@ -69,6 +75,7 @@ export const products: Product[] = [
   },
   {
     id: "street-stripe-tee",
+    image: "/products/street-stripe-tee.jpg",
     name: "Street Stripe Tee",
     price: 50,
     category: "tees",
@@ -79,6 +86,7 @@ export const products: Product[] = [
   },
   {
     id: "field-jacket",
+    image: "/products/field-jacket.jpg",
     name: "Field Utility Jacket",
     price: 210,
     category: "outerwear",
@@ -90,6 +98,7 @@ export const products: Product[] = [
   },
   {
     id: "varsity-bomber",
+    image: "/products/varsity-bomber.jpg",
     name: "Varsity Bomber Jacket",
     price: 240,
     category: "outerwear",
@@ -100,6 +109,7 @@ export const products: Product[] = [
   },
   {
     id: "stacked-cap",
+    image: "/products/stacked-cap.jpg",
     name: "Stacked Logo Cap",
     price: 38,
     category: "accessories",
@@ -110,6 +120,7 @@ export const products: Product[] = [
   },
   {
     id: "crossbody-bag",
+    image: "/products/crossbody-bag.jpg",
     name: "Utility Crossbody Bag",
     price: 68,
     category: "accessories",
@@ -120,6 +131,7 @@ export const products: Product[] = [
   },
   {
     id: "ribbed-beanie",
+    image: "/products/ribbed-beanie.jpg",
     name: "Ribbed Knit Beanie",
     price: 28,
     category: "accessories",

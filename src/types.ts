@@ -7,6 +7,7 @@ export interface Product {
   category: Category;
   color: string;
   accent: string;
+  image: string;
   description: string;
   sizes: string[];
   isNew?: boolean;

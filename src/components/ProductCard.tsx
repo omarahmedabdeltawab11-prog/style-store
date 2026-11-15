@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import type { Product } from "../types";
-import GarmentArt from "./GarmentArt";
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
@@ -8,18 +7,17 @@ export default function ProductCard({ product }: { product: Product }) {
       to={`/product/${product.id}`}
       className="group flex w-full flex-col overflow-hidden rounded-2xl border border-ink/10 bg-ink/[0.04] transition-colors hover:border-accent/60"
     >
-      <div
-        className="relative flex aspect-square items-center justify-center overflow-hidden"
-        style={{ backgroundColor: product.color }}
-      >
+      <div className="relative aspect-square overflow-hidden">
         {product.isNew && (
-          <span className="absolute left-3 top-3 rounded-full bg-accent px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-paper">
+          <span className="absolute left-3 top-3 z-10 rounded-full bg-accent px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-paper">
             New
           </span>
         )}
-        <GarmentArt
-          product={product}
-          className="h-40 w-40 transition-transform duration-300 group-hover:scale-110"
+        <img
+          src={product.image}
+          alt={product.name}
+          loading="lazy"
+          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
       </div>
       <div className="flex flex-1 flex-col gap-1 p-4">

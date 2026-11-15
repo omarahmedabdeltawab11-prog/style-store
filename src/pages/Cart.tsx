@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { getProductById } from "../data/products";
-import GarmentArt from "../components/GarmentArt";
 
 export default function Cart() {
   const { lines, updateQuantity, removeItem, subtotal } = useCart();
@@ -35,11 +34,12 @@ export default function Cart() {
                 key={`${line.productId}-${line.size}`}
                 className="flex gap-4 rounded-2xl border border-ink/10 bg-ink/[0.04] p-4"
               >
-                <div
-                  className="flex h-24 w-24 shrink-0 items-center justify-center rounded-xl"
-                  style={{ backgroundColor: product.color }}
-                >
-                  <GarmentArt product={product} className="h-16 w-16" />
+                <div className="h-24 w-24 shrink-0 overflow-hidden rounded-xl">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="h-full w-full object-cover"
+                  />
                 </div>
                 <div className="flex flex-1 flex-col justify-between">
                   <div className="flex items-start justify-between gap-2">

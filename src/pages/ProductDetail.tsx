@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { getProductById, products } from "../data/products";
 import { useCart } from "../context/CartContext";
-import GarmentArt from "../components/GarmentArt";
 import ProductCard from "../components/ProductCard";
 
 export default function ProductDetail() {
@@ -38,11 +37,12 @@ export default function ProductDetail() {
       </button>
 
       <div className="grid gap-10 md:grid-cols-2">
-        <div
-          className="flex aspect-square items-center justify-center rounded-3xl"
-          style={{ backgroundColor: product.color }}
-        >
-          <GarmentArt product={product} className="h-72 w-72 md:h-80 md:w-80" />
+        <div className="aspect-square overflow-hidden rounded-3xl">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="h-full w-full object-cover"
+          />
         </div>
 
         <div className="flex flex-col gap-6">
