@@ -130,6 +130,19 @@ export const products: Product[] = [
     sizes: ["One Size"],
   },
   {
+    id: "blossom-oversized-hoodie",
+    image: "/products/blossom-oversized-hoodie.png",
+    name: "Blossom Oversized Hoodie",
+    price: 125,
+    category: "hoodies",
+    color: "#dba0ab",
+    accent: "#111214",
+    description:
+      "Heavyweight fleece in a dusty pink wash. Oversized fit, dropped shoulders and a relaxed hood.",
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    isNew: true,
+  },
+  {
     id: "ribbed-beanie",
     image: "/products/ribbed-beanie.jpg",
     name: "Ribbed Knit Beanie",
