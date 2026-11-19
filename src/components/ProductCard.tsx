@@ -5,11 +5,11 @@ export default function ProductCard({ product }: { product: Product }) {
   return (
     <Link
       to={`/product/${product.id}`}
-      className="group flex w-full flex-col overflow-hidden rounded-2xl border border-ink/10 bg-ink/[0.04] transition-colors hover:border-accent/60"
+      className="group flex w-full flex-col overflow-hidden rounded-2xl border border-ink/10 bg-ink/[0.04] shadow-sm transition-all hover:-translate-y-1 hover:border-accent/60 hover:shadow-lg hover:shadow-ink/10"
     >
       <div className="relative aspect-square overflow-hidden">
         {product.isNew && (
-          <span className="absolute left-3 top-3 z-10 rounded-full bg-accent px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-paper">
+          <span className="absolute left-3 top-3 z-10 rounded-full bg-accent px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-paper shadow-sm">
             New
           </span>
         )}
